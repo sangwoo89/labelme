@@ -18,6 +18,11 @@ class UniqueLabelQListWidget(EscapableQListWidget):
             item = self.item(row)
             if item.data(Qt.UserRole) == label:
                 items.append(item)
+                
+            else:
+                self.createItemFromLabel(label)
+                if item.data(Qt.UserRole) == label:
+                    items.append(item)
         return items
 
     def createItemFromLabel(self, label):
